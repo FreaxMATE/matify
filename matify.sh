@@ -17,7 +17,7 @@
 
 remove_packages="matcha-gtk-theme papirus-icon-theme papirus-maia-icon-theme python-pip imagewriter thunderbird timeshift bauh lollypop steam-manjaro snapd mate-tweak"
 
-install_packages="gcc redshift git gnome-passwordsafe gnome-podcasts gnome-boxes glade libreoffice-still devhelp audacity celluloid easytag rhythmbox evolution simple-scan python-psutil python-setproctitle python-distro libnotify python-setuptools python-distutil-extra"
+install_packages="gcc redshift git gnome-passwordsafe gnome-podcasts gnome-boxes glade libreoffice-still devhelp audacity celluloid easytag rhythmbox evolution simple-scan python-psutil python-setproctitle python-distro libnotify python-setuptools python-distutils-extra"
 
 build_packages="tuxguitar"
 
