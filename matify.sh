@@ -23,7 +23,7 @@ echo "Removing Packages: "
 echo "  " $remove_packages
 echo
 for package in $remove_packages; do
-    sudo pacman -Rsn package
+    sudo pacman -Rsn $package
 done
 
 echo "Installing Packages: "
