@@ -17,19 +17,18 @@
 
 remove_packages="matcha-gtk-theme papirus-icon-theme papirus-maia-icon-theme python-pip imagewriter thunderbird timeshift bauh lollypop steam-manjaro snapd mate-tweak"
 
-install_packages="gcc redshift git gnome-passwordsafe gnome-podcasts gnome-boxes glade libreoffice-still devhelp audacity celluloid easytag tuxguitar rhythmbox evolution simple-scan"
+install_packages="gcc redshift git gnome-passwordsafe gnome-podcasts gnome-boxes glade libreoffice-still devhelp audacity celluloid easytag tuxguitar rhythmbox evolution simple-scan python-psutil python-setproctitle python-distro libnotify python-setuptools python-distutil-extra"
 
 echo "Removing Packages: "
 echo "  " $remove_packages
 echo
 for package in $remove_packages; do
-    sudo pamac remove $install_packages
+    sudo pacman -Rsn package
 done
 
 echo "Installing Packages: "
 echo "  " $install_packages
 echo
-
 sudo pamac install $install_packages
 
 cd /home/$USER/
