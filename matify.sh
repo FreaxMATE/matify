@@ -124,16 +124,17 @@ ninja
 sudo ninja install
 caja -q
 
-# theme, animations
+# gsettings
 gsettings set org.mate.interface enable-animations false
-gsettings set org.mate.interface gtk-theme Matcha-pueril
-gsettings set org.mate.interface icon-theme Papirus
+gsettings set org.mate.interface gtk-theme "Matcha-pueril"
+gsettings set org.mate.interface icon-theme "Papirus"
 
 gsettings set org.mate.caja.desktop computer-icon-visible false
 gsettings set org.mate.caja.desktop home-icon-visible false
 gsettings set org.mate.caja.desktop trash-icon-visible false
 gsettings set org.mate.caja.desktop volumes-visible false
 gsettings set org.mate.background picture-options zoom
+gsettings set org.mate.Marco.global-keybindings run-command-terminal "<Primary><Alt>t"
 
 # bash
 cd /home/$USER/
