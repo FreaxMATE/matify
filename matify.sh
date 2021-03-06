@@ -17,7 +17,7 @@
 
 remove_packages="pidgin hexchat matcha-gtk-theme papirus-icon-theme papirus-maia-icon-theme imagewriter thunderbird timeshift bauh lollypop steam-manjaro snapd mate-tweak vlc"
 
-install_packages="meson gettext python-caja python-pip bash-completion celluloid gcc redshift git gnome-passwordsafe gnome-podcasts gnome-boxes glade libreoffice-still devhelp audacity celluloid easytag rhythmbox evolution simple-scan python-psutil python-setproctitle python-distro libnotify python-setuptools python-distutils-extra"
+install_packages="make meson gettext python-caja python-pip bash-completion celluloid gcc redshift git gnome-passwordsafe gnome-podcasts gnome-boxes glade libreoffice-still devhelp audacity celluloid easytag rhythmbox evolution simple-scan python-psutil python-setproctitle python-distro libnotify python-setuptools python-distutils-extra"
 
 build_packages="rhythmbox-plugin-alternative-toolbar-git mate-menu"
 
