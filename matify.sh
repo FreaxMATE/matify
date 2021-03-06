@@ -131,6 +131,10 @@ gsettings set org.mate.caja.desktop volumes-visible false
 gsettings set org.mate.background picture-options zoom
 gsettings set org.mate.Marco.global-keybindings run-command-terminal "<Primary><Alt>t"
 
+gsettings set org.gnome.rhythmbox.plugins active-plugins "['iradio', 'mpris', 'android', 'notification', 'audiocd', 'mtpdevice', 'daap', 'mmkeys', 'dbus-media-server', 'generic-player', 'audioscrobbler', 'rb', 'alternative-toolbar', 'artsearch', 'power-manager']"
+gsettings set org.gnome.rhythmbox.plugins.alternative_toolbar display-type 2
+gsettings set org.gnome.rhythmbox.plugins.alternative_toolbar enhanced-sidebar true
+
 # bash
 cd /home/$USER/
 echo "export HISTCONTROL=ignoreboth:erasedups" >> /home/$USER/.bashrc
