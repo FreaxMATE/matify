@@ -47,7 +47,6 @@ rm -rf papirus-folders
 rm -rf Matcha-gtk-theme
 rm -rf papirus-icon-theme
 rm -rf caja-admin
-rm -rf libreoffice-style-yaru-fullcolor
 
 # install opt software
 cd /home/$USER/src/
@@ -57,17 +56,11 @@ git clone https://github.com/FreaxMATE/papirus-folders.git
 git clone https://github.com/FreaxMATE/Matcha-gtk-theme.git
 git clone https://github.com/FreaxMATE/papirus-icon-theme.git
 git clone https://github.com/infirit/caja-admin.git
-git clone https://github.com/ubuntu/libreoffice-style-yaru-fullcolor.git
-
-# install custom manjaromate layouts
-cd /home/$USER/src/manjaro-mate-settings
-sudo cp default-manjaromate-tweak.layout /usr/share/mate-panel/layouts/default-manjaromate-tweak.layout
 
 # install mate-layouts
 cd /home/$USER/src/mate-layouts
 sudo pip3 install .
 mate-layouts --layout default-manjaromate-tweak
-
 
 # set menu icon to default Papirus icon
 cd /home/$USER/.icons/
@@ -115,8 +108,8 @@ cp python.py /home/$USER/Templates/python.py
 cp rust.rs /home/$USER/Templates/rust.rs
 
 # install yaru theme for libreoffice
-cd /home/$USER/src/libreoffice-style-yaru-fullcolor
-sudo ./install.sh
+cd /home/$USER/src/manjaro-mate-settings
+libreoffice yaru-theme.oxt
 
 # install caja-admin
 cd /home/$USER/src/caja-admin
