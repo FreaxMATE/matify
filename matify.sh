@@ -39,13 +39,15 @@ echo
 sudo pamac build $build_packages
 
 cd /home/$USER/
-mkdir src && cd /home/$USER/src/
+mkdir set
+cd /home/$USER/src/
 rm -rf mate-layouts
 rm -rf manjaro-mate-settings
 rm -rf papirus-folders
 rm -rf Matcha-gtk-theme
 rm -rf papirus-icon-theme
 rm -rf caja-admin
+rm -rf libreoffice-style-yaru-fullcolor
 
 # install opt software
 cd /home/$USER/src/
