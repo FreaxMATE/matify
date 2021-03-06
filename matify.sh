@@ -17,7 +17,7 @@
 
 remove_packages="pidgin hexchat matcha-gtk-theme papirus-icon-theme papirus-maia-icon-theme imagewriter thunderbird timeshift bauh lollypop steam-manjaro snapd mate-tweak vlc"
 
-install_packages="make meson gettext python-caja python-pip bash-completion celluloid gcc redshift git gnome-passwordsafe gnome-podcasts gnome-boxes glade libreoffice-still devhelp audacity celluloid easytag rhythmbox evolution simple-scan python-psutil python-setproctitle python-distro libnotify python-setuptools python-distutils-extra"
+install_packages="python-wheel make meson gettext python-caja python-pip bash-completion celluloid gcc redshift git gnome-passwordsafe gnome-podcasts gnome-boxes glade libreoffice-still devhelp audacity celluloid easytag rhythmbox evolution simple-scan python-psutil python-setproctitle python-distro libnotify python-setuptools python-distutils-extra"
 
 build_packages="rhythmbox-plugin-alternative-toolbar-git mate-menu"
 
@@ -71,22 +71,22 @@ mate-layouts --layout default-manjaromate-tweak
 cd /home/$USER/.icons/
 mv logo-manjaro.svg logo-manjaro-legacy.svg
 cd /home/$USER/src/manjaro-mate-settings
-mv logo-manjaro.svg /home/$USER/.icons/
+cp logo-manjaro.svg /home/$USER/.icons/logo-manjaro.svg
 
 # install slideshow wallpaper
 cd /home/$USER/src/manjaro-mate-settings
-sudo mv mountains-mate-breakfast.jpg /usr/share/backgrounds/mountains-mate-breakfast.jpg
-sudo mv mountains-mate-morning.jpg /usr/share/backgrounds/mountains-mate-morning.jpg
-sudo mv mountains-mate-noon.jpg /usr/share/backgrounds/mountains-mate-noon.jpg
-sudo mv mountains-mate-afternoon.jpg /usr/share/backgrounds/mountains-mate-afternoon.jpg
-sudo mv mountains-mate-evening.jpg /usr/share/backgrounds/mountains-mate-evening.jpg
-sudo mv mountains-mate-night.jpg /usr/share/backgrounds/mountains-mate-night.jpg
-sudo mv mountains-mate.xml /usr/share/backgrounds/mountains-mate.xml
+sudo cp mountains-mate-breakfast.jpg /usr/share/backgrounds/mountains-mate-breakfast.jpg
+sudo cp mountains-mate-morning.jpg /usr/share/backgrounds/mountains-mate-morning.jpg
+sudo cp mountains-mate-noon.jpg /usr/share/backgrounds/mountains-mate-noon.jpg
+sudo cp mountains-mate-afternoon.jpg /usr/share/backgrounds/mountains-mate-afternoon.jpg
+sudo cp mountains-mate-evening.jpg /usr/share/backgrounds/mountains-mate-evening.jpg
+sudo cp mountains-mate-night.jpg /usr/share/backgrounds/mountains-mate-night.jpg
+sudo cp mountains-mate.xml /usr/share/backgrounds/mountains-mate.xml
 gsettings set org.mate.background picture-filename /usr/share/backgrounds/mountains-mate.xml
 
 # start redshift automatically
 cd /home/$USER/src/manjaro-mate-settings
-sudo mv redshift-gtk.desktop /home/$USER/.config/autostart/redshift-gtk.desktop
+sudo cp redshift-gtk.desktop /home/$USER/.config/autostart/redshift-gtk.desktop
 
 # install Matcha theme
 cd /home/$USER/src/Matcha-gtk-theme
@@ -138,4 +138,4 @@ gsettings set org.mate.Marco.global-keybindings run-command-terminal "<Primary><
 
 # bash
 cd /home/$USER/
-echo "export HISTCONTROL=ignoreboth:erasedups" >> cd /home/$USER/.bashrc
+echo "export HISTCONTROL=ignoreboth:erasedups" >> /home/$USER/.bashrc
