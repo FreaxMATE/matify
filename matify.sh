@@ -90,6 +90,7 @@ sudo ./install.sh
 
 # install Papirus icon theme
 cd /home/$USER/src/papirus-icon-theme
+git checkout mate_green
 sudo make install
 
 # install papirus folders
