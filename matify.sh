@@ -39,7 +39,7 @@ echo
 sudo pamac build $build_packages
 
 cd /home/$USER/
-mkdir set
+mkdir src
 cd /home/$USER/src/
 rm -rf mate-layouts
 rm -rf manjaro-mate-settings
@@ -109,8 +109,8 @@ cp python.py /home/$USER/Templates/python.py
 cp rust.rs /home/$USER/Templates/rust.rs
 
 # install yaru theme for libreoffice
-cd /home/$USER/src/manjaro-mate-settings
-libreoffice yaru-theme.oxt
+#cd /home/$USER/src/manjaro-mate-settings
+#libreoffice yaru-theme.oxt
 
 # install caja-admin
 cd /home/$USER/src/caja-admin
