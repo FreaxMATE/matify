@@ -60,7 +60,7 @@ git clone https://github.com/infirit/caja-admin.git
 # install mate-layouts
 cd /home/$USER/src/mate-layouts
 sudo pip3 install .
-mate-layouts --layout default-manjaromate-tweak
+mate-layouts --layout default
 
 # set menu icon to default Papirus icon
 cd /home/$USER/.icons/
