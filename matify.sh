@@ -335,7 +335,7 @@ function remove()
 
 function install()
 {
-    undo
+    remove
     remove_packages
     install_packages
     clone_repos
@@ -352,7 +352,7 @@ function usage() {
   exit 1
 }
 
-if [ $# -lt 1 ] || [] $# -gt 2 ]; then
+if [ $# -lt 1 ] || [ $# -gt 2 ]; then
     usage
     exit 0
 fi
