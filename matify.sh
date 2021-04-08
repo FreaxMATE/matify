@@ -235,6 +235,9 @@ function default_settings()
     gsettings set org.gnome.rhythmbox.plugins.alternative_toolbar display-type 2
     gsettings set org.gnome.rhythmbox.plugins.alternative_toolbar enhanced-sidebar true
 
+    cd /home/$USER/src/manjaro-mate-settings
+    sudo install -Dbv slick-greeter.conf /etc/lightdm/slick-greeter.conf
+
     # bash
     cd /home/$USER/
     echo -e "export HISTCONTROL=ignoreboth:erasedups" >> /home/$USER/.bashrc
