@@ -88,6 +88,11 @@ function install_packages()
     sudo pamac build $build_packages
 }
 
+function init_packages()
+{
+    timeout 5s libreoffice --invisible
+}
+
 function clone_repos()
 {
     mkdir /home/$USER/src/
@@ -343,6 +348,7 @@ function remove()
 function install()
 {
     install_packages
+    init_packages
     clone_repos
     build_from_source
     default_settings
