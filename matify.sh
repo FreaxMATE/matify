@@ -88,11 +88,6 @@ function install_packages()
     sudo pamac build $build_packages
 }
 
-function init_packages()
-{
-    timeout 5s libreoffice --invisible &
-}
-
 function clone_repos()
 {
     mkdir /home/$USER/src/
@@ -179,7 +174,8 @@ function build_from_source()
 function default_settings()
 {
     # libreoffice set yaru mate icon theme
-    sed -i "s/auto/yaru_mate/" /home/$USER/.config/libreoffice/4/user/registrymodifications.xcu
+    cd /home/$USER/src/manjaro-mate-settings
+    install -Dv registrymodifications.xcu /home/$USER/.config/libreoffice/4/user/registrymodifications.xcu
 
     # set menu icon to default Papirus icon
     cd /home/$USER/.icons/
@@ -350,7 +346,6 @@ function remove()
 function install()
 {
     install_packages
-    init_packages
     clone_repos
     build_from_source
     default_settings
