@@ -341,8 +341,6 @@ function remove()
 
 function install()
 {
-    remove
-    remove_packages
     install_packages
     clone_repos
     build_from_source
