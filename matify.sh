@@ -233,6 +233,8 @@ function default_settings()
     gsettings set org.mate.Marco.global-keybindings run-command-terminal "<Primary><Alt>t"
     gsettings set org.mate.screensaver picture-filename "/usr/share/backgrounds/manjaro-wallpapers-18.0/wMJ_neutral_textured_warm.jpg"
 
+    gsettings set io.github.celluloid-player.Celluloid csd-enable false
+
     gsettings set org.gnome.rhythmbox.plugins active-plugins "['iradio', 'mpris', 'android', 'notification', 'audiocd', 'mtpdevice', 'daap', 'mmkeys', 'dbus-media-server', 'generic-player', 'audioscrobbler', 'rb', 'alternative-toolbar', 'artsearch', 'power-manager']"
     gsettings set org.gnome.rhythmbox.plugins.alternative_toolbar display-type 2
     gsettings set org.gnome.rhythmbox.plugins.alternative_toolbar enhanced-sidebar true
