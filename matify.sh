@@ -90,6 +90,7 @@ function install_packages()
 
 function clone_repos()
 {
+    mkdir /home/$USER/src/
     cd /home/$USER/src/
     echo -e "Cloning mate-layouts started..."
     git clone https://github.com/FreaxMATE/mate-layouts.git
