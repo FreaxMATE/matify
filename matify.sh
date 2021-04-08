@@ -237,6 +237,7 @@ function default_settings()
 
     cd /home/$USER/src/manjaro-mate-settings
     sudo install -Dbv slick-greeter.conf /etc/lightdm/slick-greeter.conf
+    sudo install -Dbv index.theme /usr/share/icons/default/index.theme
 
     # bash
     cd /home/$USER/
