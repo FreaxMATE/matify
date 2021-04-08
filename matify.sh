@@ -24,53 +24,53 @@ purple="\e[0;35m"
 cyan="\e[0;36m"
 white="\e[0;37m"
 
-remove_packages="pidgin\
-                 hexchat\
-                 matcha-gtk-theme\
-                 papirus-icon-theme\
-                 papirus-maia-icon-theme\
-                 imagewriter\
-                 thunderbird\
-                 timeshift\
-                 bauh\
-                 lollypop\
-                 steam-manjaro\
-                 snapd\
-                 mate-tweak\
-                 vlc"
+remove_packages_names="pidgin\
+                        hexchat\
+                        matcha-gtk-theme\
+                        papirus-icon-theme\
+                        papirus-maia-icon-theme\
+                        imagewriter\
+                        thunderbird\
+                        timeshift\
+                        bauh\
+                        lollypop\
+                        steam-manjaro\
+                        snapd\
+                        mate-tweak\
+                        vlc"
 
-install_packages="python-wheel\
-                  make\
-                  meson\
-                  gettext\
-                  python-caja\
-                  python-pip\
-                  bash-completion\
-                  rhythmbox\
-                  celluloid\
-                  gcc\
-                  redshift\
-                  git\
-                  gnome-passwordsafe\
-                  libreoffice-still\
-                  celluloid\
-                  evolution\
-                  simple-scan\
-                  python-psutil\
-                  python-setproctitle\
-                  python-distro\
-                  libnotify\
-                  python-setuptools\
-                  python-distutils-extra"
+install_package_names="python-wheel\
+                        make\
+                        meson\
+                        gettext\
+                        python-caja\
+                        python-pip\
+                        bash-completion\
+                        rhythmbox\
+                        celluloid\
+                        gcc\
+                        redshift\
+                        git\
+                        gnome-passwordsafe\
+                        libreoffice-still\
+                        celluloid\
+                        evolution\
+                        simple-scan\
+                        python-psutil\
+                        python-setproctitle\
+                        python-distro\
+                        libnotify\
+                        python-setuptools\
+                        python-distutils-extra"
 
 build_packages="mate-menu rhythmbox-plugin-alternative-toolbar"
 
 function remove_packages()
 {
     echo -e "Removing Packages:"
-    echo -e "  " $remove_packages
+    echo -e "  " $remove_packages_names
     echo -e
-    for package in $remove_packages; do
+    for package in $remove_packages_names; do
         sudo pacman -Rsn $package
     done
 }
@@ -78,9 +78,9 @@ function remove_packages()
 function install_packages()
 {
     echo -e "Installing Packages:"
-    echo -e "  " $install_packages
+    echo -e "  " $install_package_names
     echo -e
-    sudo pamac install $install_packages
+    sudo pamac install $install_package_names
 
     echo -e "Building Packages from AUR:"
     echo -e "  " $build_packages
