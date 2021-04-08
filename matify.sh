@@ -46,6 +46,7 @@ install_packages="python-wheel\
                   python-caja\
                   python-pip\
                   bash-completion\
+                  rhythmbox\
                   celluloid\
                   gcc\
                   redshift\
@@ -62,7 +63,7 @@ install_packages="python-wheel\
                   python-setuptools\
                   python-distutils-extra"
 
-build_packages="mate-menu"
+build_packages="mate-menu rhythmbox-plugin-alternative-toolbar"
 
 function remove_packages()
 {
@@ -213,8 +214,10 @@ function default_settings()
 
     # gsettings
     gsettings set org.mate.interface enable-animations false
-    gsettings set org.mate.interface gtk-theme "Matcha-pueril"
-    gsettings set org.mate.interface icon-theme "Papirus"
+    gsettings set org.mate.Marco.general theme "Matcha-dark-pueril"
+    gsettings set org.mate.interface gtk-theme "Matcha-dark-pueril"
+    gsettings set org.mate.interface icon-theme "Papirus-Dark"
+    gsettings set org.mate.peripherals-mouse "xcursor-breeze-snow"
 
     gsettings set org.mate.caja.desktop computer-icon-visible false
     gsettings set org.mate.caja.desktop home-icon-visible false
@@ -224,9 +227,9 @@ function default_settings()
     gsettings set org.mate.Marco.global-keybindings run-command-terminal "<Primary><Alt>t"
     gsettings set org.mate.screensaver picture-filename "/usr/share/backgrounds/manjaro-wallpapers-18.0/wMJ_neutral_textured_warm.jpg"
 
-    #gsettings set org.gnome.rhythmbox.plugins active-plugins "['iradio', 'mpris', 'android', 'notification', 'audiocd', 'mtpdevice', 'daap', 'mmkeys', 'dbus-media-server', 'generic-player', 'audioscrobbler', 'rb', 'alternative-toolbar', 'artsearch', 'power-manager']"
-    #gsettings set org.gnome.rhythmbox.plugins.alternative_toolbar display-type 2
-    #gsettings set org.gnome.rhythmbox.plugins.alternative_toolbar enhanced-sidebar true
+    gsettings set org.gnome.rhythmbox.plugins active-plugins "['iradio', 'mpris', 'android', 'notification', 'audiocd', 'mtpdevice', 'daap', 'mmkeys', 'dbus-media-server', 'generic-player', 'audioscrobbler', 'rb', 'alternative-toolbar', 'artsearch', 'power-manager']"
+    gsettings set org.gnome.rhythmbox.plugins.alternative_toolbar display-type 2
+    gsettings set org.gnome.rhythmbox.plugins.alternative_toolbar enhanced-sidebar true
 
     # bash
     cd /home/$USER/
