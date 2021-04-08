@@ -90,7 +90,7 @@ function install_packages()
 
 function init_packages()
 {
-    timeout 5s libreoffice --invisible
+    timeout 5s libreoffice --invisible &
 }
 
 function clone_repos()
