@@ -214,6 +214,9 @@ function default_settings()
     cp python.py /home/$USER/Templates/python.py
     cp rust.rs /home/$USER/Templates/rust.rs
 
+    # panel layout
+    mate-layouts --layout default
+
     # gsettings
     gsettings set org.mate.interface enable-animations false
     gsettings set org.mate.Marco.general theme "Matcha-dark-pueril"
