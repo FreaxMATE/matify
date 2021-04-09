@@ -347,7 +347,7 @@ function remove()
     mate-layouts --layout default
 }
 
-function install()
+function install_matify()
 {
     install_packages
     clone_repos
@@ -370,7 +370,7 @@ if [ $# -lt 1 ] || [ $# -gt 2 ]; then
 fi
 
 if [ "$1" == "install" ]; then
-    install
+    install_matify
 elif [ "$1" == "remove" ]; then
     remove
 else
