@@ -219,10 +219,10 @@ function default_settings()
 
     # gsettings
     gsettings set org.mate.interface enable-animations false
-    gsettings set org.mate.Marco.general theme "Matcha-dark-pueril"
-    gsettings set org.mate.interface gtk-theme "Matcha-dark-pueril"
-    gsettings set org.mate.interface icon-theme "Papirus-Dark"
-    gsettings set org.mate.peripherals-mouse "xcursor-breeze-snow"
+    gsettings set org.mate.Marco.general theme "Matcha-pueril"
+    gsettings set org.mate.interface gtk-theme "Matcha-pueril"
+    gsettings set org.mate.interface icon-theme "Papirus"
+    gsettings set org.mate.peripherals-mouse cursor-theme "xcursor-breeze"
 
     gsettings set org.mate.caja.desktop computer-icon-visible false
     gsettings set org.mate.caja.desktop home-icon-visible false
