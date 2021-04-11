@@ -352,6 +352,7 @@ function remove()
 
 function install_matify()
 {
+    remove_packages
     install_packages
     clone_repos
     build_from_source
