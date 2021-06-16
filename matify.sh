@@ -61,9 +61,11 @@ install_package_names="python-wheel\
                         python-distro\
                         libnotify\
                         python-setuptools\
-                        python-distutils-extra"
+                        python-distutils-extra\
+                        gtkhash-caja\
+                        "
 
-build_packages="mate-menu rhythmbox-plugin-alternative-toolbar"
+build_packages="mate-menu rhythmbox-plugin-alternative-toolbar ttf-fira-code"
 
 function remove_packages()
 {
@@ -214,6 +216,11 @@ function default_settings()
     cp python.py /home/$USER/Templates/python.py
     cp rust.rs /home/$USER/Templates/rust.rs
 
+    # qt settings
+    cd /home/$USER/src/manjaro-mate-settings
+    install -Dbv qt5ct.conf /home/$USER/.config/qt5ct/qt5ct.conf
+    install -Dbv kvantum.kvconfig /home/$USER/.config/Kvantum/kvantum.kvconfig
+
     # panel layout
     mate-layouts --layout default
 
@@ -223,6 +230,11 @@ function default_settings()
     gsettings set org.mate.interface gtk-theme "Matcha-pueril"
     gsettings set org.mate.interface icon-theme "Papirus"
     gsettings set org.mate.peripherals-mouse cursor-theme "xcursor-breeze"
+
+    gsettings set org.mate.interface document-font-name "Fira Code Medium 10"
+    gsettings set org.mate.interface font-name "Fira Code Medium 10"
+    gsettings set org.mate.interface monospace-font-name "Fira Code Medium 10"
+    gsettings set org.mate.Marco.general titlebar-font "Fira Code Bold 10"
 
     gsettings set org.mate.caja.desktop computer-icon-visible false
     gsettings set org.mate.caja.desktop home-icon-visible false
