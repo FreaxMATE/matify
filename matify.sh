@@ -65,7 +65,7 @@ install_package_names="python-wheel\
                         gtkhash-caja\
                         "
 
-build_packages="mate-menu rhythmbox-plugin-alternative-toolbar ttf-fira-code"
+build_packages="mate-menu rhythmbox-plugin-alternative-toolbar ttf-fira-code volctl"
 
 function remove_packages()
 {
@@ -204,7 +204,7 @@ function default_settings()
 
     # start redshift automatically
     cd /home/$USER/src/manjaro-mate-settings
-    sudo cp redshift-gtk.desktop /home/$USER/.config/autostart/redshift-gtk.desktop
+    cp redshift-gtk.desktop /home/$USER/.config/autostart/redshift-gtk.desktop
 
     # install template files
     cd /home/$USER/src/manjaro-mate-settings
@@ -220,6 +220,11 @@ function default_settings()
     cd /home/$USER/src/manjaro-mate-settings
     install -Dbv qt5ct.conf /home/$USER/.config/qt5ct/qt5ct.conf
     install -Dbv kvantum.kvconfig /home/$USER/.config/Kvantum/kvantum.kvconfig
+
+    # replace mate-volume-control-status-icon with volctl
+    cd /home/$USER/src/manjaro-mate-settings
+    rm /home/$USER/.config/autostart/mate-volume-control-status-icon.desktop
+    cp volctl.desktop /home/$USER/.config/autostart/volctl.desktop
 
     # panel layout
     mate-layouts --layout default
@@ -249,6 +254,11 @@ function default_settings()
     gsettings set org.gnome.rhythmbox.plugins active-plugins "['iradio', 'mpris', 'android', 'notification', 'audiocd', 'mtpdevice', 'daap', 'mmkeys', 'dbus-media-server', 'generic-player', 'audioscrobbler', 'rb', 'alternative-toolbar', 'artsearch', 'power-manager']"
     gsettings set org.gnome.rhythmbox.plugins.alternative_toolbar display-type 2
     gsettings set org.gnome.rhythmbox.plugins.alternative_toolbar enhanced-sidebar true
+
+    gsettings set apps.volctl:/apps/volctl/ mixer-command 'mate-volume-control'
+    gsettings set apps.volctl:/apps/volctl/ osd-enabled false
+    gsettings set apps.volctl:/apps/volctl/ prefer-gtksi false
+    gsettings set apps.volctl:/apps/volctl/ show-percentage true
 
     cd /home/$USER/src/manjaro-mate-settings
     sudo install -Dbv slick-greeter.conf /etc/lightdm/slick-greeter.conf
