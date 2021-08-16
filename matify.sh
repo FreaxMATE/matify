@@ -73,7 +73,7 @@ function remove_packages()
     echo -e "  " $remove_packages_names
     echo -e
     for package in $remove_packages_names; do
-        sudo pacman -Rsn --noconfirm $package  > /dev/null
+        sudo pacman -Rsn --noconfirm $package
     done
 }
 
@@ -82,12 +82,12 @@ function install_packages()
     echo -e "Installing Packages:"
     echo -e "  " $install_package_names
     echo -e
-    sudo pamac install --noconfirm $install_package_names > /dev/null
+    sudo pamac install --noconfirm $install_package_names
 
     echo -e "Building Packages from AUR:"
     echo -e "  " $build_packages
     echo -e
-    sudo pamac build --noconfirm $build_packages > /dev/null
+    sudo pamac build --noconfirm $build_packages
 }
 
 function clone_repos()
@@ -125,7 +125,7 @@ function build_from_source()
     # install mate-layouts
     echo -e "Installation of mate-layouts started..."
     cd /home/$USER/src/mate-layouts
-    meson build --prefix=/usr  > /dev/null
+    meson build --prefix=/usr
     cd build
     sudo ninja install
     echo -e "Installation of mate-layouts finished..."
@@ -140,7 +140,7 @@ function build_from_source()
     # install papirus-folders
     echo -e "Installation of papirus-folders started..."
     cd /home/$USER/src/papirus-folders
-    sudo make install  > /dev/null
+    sudo make install
     papirus-folders -t Papirus  -C mategreen
     papirus-folders -t Papirus-Dark  -C mategreen
     echo -e "Installation of papirus-folders finished..."
@@ -148,7 +148,7 @@ function build_from_source()
     # install caja-admin
     echo -e "Installation of caja-admin started..."
     cd /home/$USER/src/caja-admin
-    meson --prefix=/usr build  > /dev/null
+    meson --prefix=/usr build
     cd build
     ninja
     sudo ninja install
@@ -158,7 +158,7 @@ function build_from_source()
     # install libreoffice-yaru-icon-theme
     echo -e "Installation of libreoffice-yaru-icon-theme started..."
     cd /home/$USER/src/libreoffice-style-yaru-fullcolor/
-    sudo ./install.sh  > /dev/null
+    sudo ./install.sh
     echo -e "Installation of libreoffice-yaru-icon-theme finished..."
 }
 
