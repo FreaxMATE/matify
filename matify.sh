@@ -41,6 +41,7 @@ remove_packages_names="pidgin\
 
 install_package_names="python-wheel\
                         make\
+                        matcha-gtk-theme\
                         meson\
                         gettext\
                         python-caja\
@@ -106,10 +107,6 @@ function clone_repos()
     git clone https://github.com/FreaxMATE/papirus-folders.git
     echo -e "Cloning papirus-folders finished..."
 
-    echo -e "Cloning Matcha-gtk-theme started..."
-    git clone https://github.com/FreaxMATE/Matcha-gtk-theme.git
-    echo -e "Cloning Matcha-gtk-theme finished..."
-
     echo -e "Cloning papirus-icon-theme started..."
     git clone https://github.com/FreaxMATE/papirus-icon-theme.git
     echo -e "Cloning papirus-icon-theme finished..."
@@ -133,13 +130,6 @@ function build_from_source()
     cd build
     sudo ninja install
     echo -e "Installation of mate-layouts finished..."
-
-    # install Matcha-gtk-theme
-    echo -e "Installation of Matcha-gtk-theme started..."
-    cd /home/$USER/src/Matcha-gtk-theme
-    git checkout green
-    sudo ./install.sh
-    echo -e "Installation of Matcha-gtk-theme finished..."
 
     # install papirus-icon-theme
     echo -e "Installation of papirus-icon-theme started..."
