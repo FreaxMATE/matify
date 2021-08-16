@@ -221,13 +221,15 @@ function default_settings()
     install -Dbv qt5ct.conf /home/$USER/.config/qt5ct/qt5ct.conf
     install -Dbv kvantum.kvconfig /home/$USER/.config/Kvantum/kvantum.kvconfig
 
+    # panel layout
+    mate-layouts --layout default
+
     # replace mate-volume-control-status-icon with volctl
     cd /home/$USER/src/manjaro-mate-settings
     rm /home/$USER/.config/autostart/mate-volume-control-status-icon.desktop
+    sudo rm /etc/xdg/autostart/mate-volume-control-status-icon.desktop
     cp volctl.desktop /home/$USER/.config/autostart/volctl.desktop
 
-    # panel layout
-    mate-layouts --layout default
 
     # gsettings
     gsettings set org.mate.interface enable-animations false
