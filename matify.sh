@@ -26,7 +26,6 @@ white="\e[0;37m"
 
 remove_packages_names="pidgin\
                         hexchat\
-                        matcha-gtk-theme\
                         papirus-icon-theme\
                         papirus-maia-icon-theme\
                         imagewriter\
