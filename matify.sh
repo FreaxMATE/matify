@@ -217,6 +217,7 @@ function default_settings()
     cd /home/$USER/src/manjaro-mate-settings
     rm /home/$USER/.config/autostart/mate-volume-control-status-icon.desktop
     sudo rm /etc/xdg/autostart/mate-volume-control-status-icon.desktop
+    sudo rm /usr/etc/xdg/autostart/mate-volume-control-status-icon.desktop
     cp volctl.desktop /home/$USER/.config/autostart/volctl.desktop
 
 
