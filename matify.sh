@@ -65,7 +65,7 @@ install_package_names="python-wheel\
                         gtkhash-caja\
                         "
 
-build_packages="mate-menu rhythmbox-plugin-alternative-toolbar ttf-fira-code volctl"
+build_packages="caja-admin mate-menu rhythmbox-plugin-alternative-toolbar ttf-fira-code volctl"
 
 function remove_packages()
 {
@@ -110,10 +110,6 @@ function clone_repos()
     git clone https://github.com/FreaxMATE/papirus-icon-theme.git
     echo -e "Cloning papirus-icon-theme finished..."
 
-    echo -e "Cloning caja-admin started..."
-    git clone https://github.com/infirit/caja-admin.git
-    echo -e "Cloning caja-admin finished..."
-
     echo -e "Cloning libreoffice-style-yaru-fullcolor started..."
     git clone https://github.com/ubuntu/libreoffice-style-yaru-fullcolor.git
     echo -e "Cloning libreoffice-style-yaru-fullcolors finished..."
@@ -144,16 +140,6 @@ function build_from_source()
     papirus-folders -t Papirus  -C mategreen
     papirus-folders -t Papirus-Dark  -C mategreen
     echo -e "Installation of papirus-folders finished..."
-
-    # install caja-admin
-    echo -e "Installation of caja-admin started..."
-    cd /home/$USER/src/caja-admin
-    meson --prefix=/usr build
-    cd build
-    ninja
-    sudo ninja install
-    caja -q
-    echo -e "Installation of caja-admin finished..."
 
     # install libreoffice-yaru-icon-theme
     echo -e "Installation of libreoffice-yaru-icon-theme started..."
@@ -269,9 +255,7 @@ function remove()
     rm -rf mate-layouts/
     rm -rf manjaro-mate-settings/
     rm -rf papirus-folders/
-    rm -rf Matcha-gtk-theme/
     rm -rf papirus-icon-theme/
-    rm -rf caja-admin/
     rm -rf libreoffice-style-yaru-fullcolor/
 
     clone_repos
@@ -283,11 +267,6 @@ function remove()
     sudo ninja install
     sudo ninja uninstall
 
-    # uninstall Matcha theme
-    cd /home/$USER/src/Matcha-gtk-theme
-    git checkout green
-    sudo rm -rf /usr/share/themes/Matcha-*
-
     # uninstall Papirus icon theme
     cd /home/$USER/src/papirus-icon-theme
     git checkout mate_green
@@ -298,15 +277,6 @@ function remove()
     cd /home/$USER/src/papirus-folders
     sudo make install
     sudo make uninstall
-
-    # uninstall caja-admin
-    cd /home/$USER/src/caja-admin
-    meson --prefix=/usr build
-    cd build
-    ninja
-    sudo ninja install
-    sudo ninja uninstall
-    caja -q
 
     # install libreoffice yaru icon theme
     cd /home/$USER/src/libreoffice-style-yaru-fullcolor/
