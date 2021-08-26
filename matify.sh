@@ -77,7 +77,11 @@ function remove_packages()
     echo -e "  " $remove_packages_names
     echo -e
     for package in $remove_packages_names; do
-        sudo pacman -Rsn --noconfirm $package
+        if [ package -eq "thunderbird" ]; do
+            sudo pacman -Rsndd $package
+        else; do
+            sudo pacman -Rsn --noconfirm $package
+        fi
     done
 }
 
