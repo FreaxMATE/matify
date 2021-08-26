@@ -151,28 +151,28 @@ function default_settings()
 
     # install slideshow wallpaper
     cd /home/$USER/src/manjaro-mate-settings
-    sudo cp mountains-mate-breakfast.jpg /usr/share/backgrounds/mountains-mate-breakfast.jpg
-    sudo cp mountains-mate-morning.jpg /usr/share/backgrounds/mountains-mate-morning.jpg
-    sudo cp mountains-mate-noon.jpg /usr/share/backgrounds/mountains-mate-noon.jpg
-    sudo cp mountains-mate-afternoon.jpg /usr/share/backgrounds/mountains-mate-afternoon.jpg
-    sudo cp mountains-mate-evening.jpg /usr/share/backgrounds/mountains-mate-evening.jpg
-    sudo cp mountains-mate-night.jpg /usr/share/backgrounds/mountains-mate-night.jpg
+    sudo cp mountains-breakfast.jpg /usr/share/backgrounds/mountains-breakfast.jpg
+    sudo cp mountains-morning.jpg /usr/share/backgrounds/mountains-morning.jpg
+    sudo cp mountains-noon.jpg /usr/share/backgrounds/mountains-noon.jpg
+    sudo cp mountains-afternoon.jpg /usr/share/backgrounds/mountains-afternoon.jpg
+    sudo cp mountains-evening.jpg /usr/share/backgrounds/mountains-evening.jpg
+    sudo cp mountains-night.jpg /usr/share/backgrounds/mountains-night.jpg
     sudo cp mountains-mate.xml /usr/share/backgrounds/mountains-mate.xml
 
-    sudo cp mountains-mate-breakfast-logo.jpg /usr/share/backgrounds/mountains-mate-breakfast-logo.jpg
-    sudo cp mountains-mate-morning-logo.jpg /usr/share/backgrounds/mountains-mate-morning-logo.jpg
-    sudo cp mountains-mate-noon-logo.jpg /usr/share/backgrounds/mountains-mate-noon-logo.jpg
-    sudo cp mountains-mate-afternoon-logo.jpg /usr/share/backgrounds/mountains-mate-afternoon-logo.jpg
-    sudo cp mountains-mate-evening-logo.jpg /usr/share/backgrounds/mountains-mate-evening-logo.jpg
-    sudo cp mountains-mate-night-logo.jpg /usr/share/backgrounds/mountains-mate-night-logo.jpg
+    sudo cp mountains-breakfast-logo.jpg /usr/share/backgrounds/mountains-breakfast-logo.jpg
+    sudo cp mountains-morning-logo.jpg /usr/share/backgrounds/mountains-morning-logo.jpg
+    sudo cp mountains-noon-logo.jpg /usr/share/backgrounds/mountains-noon-logo.jpg
+    sudo cp mountains-afternoon-logo.jpg /usr/share/backgrounds/mountains-afternoon-logo.jpg
+    sudo cp mountains-evening-logo.jpg /usr/share/backgrounds/mountains-evening-logo.jpg
+    sudo cp mountains-night-logo.jpg /usr/share/backgrounds/mountains-night-logo.jpg
     sudo cp mountains-mate.xml /usr/share/backgrounds/mountains-mate.xml
 
-    sudo cp mountains-mate-breakfast-sun.jpg /usr/share/backgrounds/mountains-mate-breakfast-sun.jpg
-    sudo cp mountains-mate-morning-sun.jpg /usr/share/backgrounds/mountains-mate-morning-sun.jpg
-    sudo cp mountains-mate-noon-sun.jpg /usr/share/backgrounds/mountains-mate-noon-sun.jpg
-    sudo cp mountains-mate-afternoon-sun.jpg /usr/share/backgrounds/mountains-mate-afternoon-sun.jpg
-    sudo cp mountains-mate-evening-sun.jpg /usr/share/backgrounds/mountains-mate-evening-sun.jpg
-    sudo cp mountains-mate-night-sun.jpg /usr/share/backgrounds/mountains-mate-night-sun.jpg
+    sudo cp mountains-breakfast-sun.jpg /usr/share/backgrounds/mountains-breakfast-sun.jpg
+    sudo cp mountains-morning-sun.jpg /usr/share/backgrounds/mountains-morning-sun.jpg
+    sudo cp mountains-noon-sun.jpg /usr/share/backgrounds/mountains-noon-sun.jpg
+    sudo cp mountains-afternoon-sun.jpg /usr/share/backgrounds/mountains-afternoon-sun.jpg
+    sudo cp mountains-evening-sun.jpg /usr/share/backgrounds/mountains-evening-sun.jpg
+    sudo cp mountains-night-sun.jpg /usr/share/backgrounds/mountains-night-sun.jpg
     sudo cp mountains-mate.xml /usr/share/backgrounds/mountains-mate.xml
 
     gsettings set org.mate.background picture-filename /usr/share/backgrounds/mountains-mate.xml
