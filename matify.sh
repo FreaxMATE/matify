@@ -62,10 +62,15 @@ install_package_names="python-wheel\
                         libnotify\
                         python-setuptools\
                         python-distutils-extra\
-                        gtkhash-caja\
-                        "
+                        gtkhash-caja"
 
-build_packages="caja-admin mate-menu rhythmbox-plugin-alternative-toolbar ttf-fira-code volctl"
+build_packages="caja-admin\
+                mate-menu\
+                libreoffice-style-yaru-fullcolor\
+                papirus-mate-icon-theme\
+                rhythmbox-plugin-alternative-toolbar\
+                ttf-fira-code\
+                volctl"
 
 function remove_packages()
 {
@@ -101,19 +106,6 @@ function clone_repos()
     echo -e "Cloning manjaro-mate-settings started..."
     git clone https://github.com/FreaxMATE/manjaro-mate-settings.git
     echo -e "Cloning manjaro-mate-settings finished..."
-
-    echo -e "Cloning papirus-folders started..."
-    git clone https://github.com/FreaxMATE/papirus-folders.git
-    echo -e "Cloning papirus-folders finished..."
-
-    echo -e "Cloning papirus-icon-theme started..."
-    git clone https://github.com/FreaxMATE/papirus-icon-theme.git
-    echo -e "Cloning papirus-icon-theme finished..."
-
-    echo -e "Cloning libreoffice-style-yaru-fullcolor started..."
-    git clone https://github.com/ubuntu/libreoffice-style-yaru-fullcolor.git
-    echo -e "Cloning libreoffice-style-yaru-fullcolors finished..."
-
 }
 
 function build_from_source()
@@ -140,12 +132,6 @@ function build_from_source()
     papirus-folders -t Papirus  -C mategreen
     papirus-folders -t Papirus-Dark  -C mategreen
     echo -e "Installation of papirus-folders finished..."
-
-    # install libreoffice-yaru-icon-theme
-    echo -e "Installation of libreoffice-yaru-icon-theme started..."
-    cd /home/$USER/src/libreoffice-style-yaru-fullcolor/
-    sudo ./install.sh
-    echo -e "Installation of libreoffice-yaru-icon-theme finished..."
 }
 
 function default_settings()
@@ -211,7 +197,7 @@ function default_settings()
     gsettings set org.mate.interface enable-animations false
     gsettings set org.mate.Marco.general theme "Matcha-pueril"
     gsettings set org.mate.interface gtk-theme "Matcha-pueril"
-    gsettings set org.mate.interface icon-theme "Papirus"
+    gsettings set org.mate.interface icon-theme "Papirus-MATE"
     gsettings set org.mate.peripherals-mouse cursor-theme "xcursor-breeze"
 
     gsettings set org.mate.interface document-font-name "Fira Code Medium 10"
@@ -258,9 +244,6 @@ function remove()
     cd /home/$USER/src/
     rm -rf mate-layouts/
     rm -rf manjaro-mate-settings/
-    rm -rf papirus-folders/
-    rm -rf papirus-icon-theme/
-    rm -rf libreoffice-style-yaru-fullcolor/
 
     clone_repos
 
@@ -270,21 +253,6 @@ function remove()
     cd build
     sudo ninja install
     sudo ninja uninstall
-
-    # uninstall Papirus icon theme
-    cd /home/$USER/src/papirus-icon-theme
-    git checkout mate_green
-    sudo make install
-    sudo make uninstall
-
-    # uninstall papirus folders
-    cd /home/$USER/src/papirus-folders
-    sudo make install
-    sudo make uninstall
-
-    # install libreoffice yaru icon theme
-    cd /home/$USER/src/libreoffice-style-yaru-fullcolor/
-    sudo ./remove.sh
 
     # manual #
     # libreoffice set yaru mate icon theme
