@@ -93,7 +93,7 @@ function install_packages()
     echo -e "  " $build_packages
     echo -e
     for package in $build_packages; do
-        sudo pamac build --no-confirm $build_packages
+        sudo pamac build --no-confirm $package
     done
 }
 
