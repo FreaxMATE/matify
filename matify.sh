@@ -78,7 +78,7 @@ function remove_packages()
     echo -e
     for package in $remove_packages_names; do
         if [ $package == "thunderbird" ]; then
-            sudo pacman -Rsndd $package
+            sudo pacman -Rsndd --noconfirm $package
         else
             sudo pacman -Rsn --noconfirm $package
         fi
