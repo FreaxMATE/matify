@@ -133,6 +133,10 @@ function default_settings()
     cd /home/$USER/src/manjaro-mate-settings
     install -Dv registrymodifications.xcu /home/$USER/.config/libreoffice/4/user/registrymodifications.xcu
 
+    # set menu entries
+    cd /home/$USER/src/manjaro-mate-settings
+    install -Dv mate-applications.menu /home/$USER/.config/menus/mate-applications.menu
+
     # set menu icon to default Papirus icon
     cd /home/$USER/.icons/
     mv logo-manjaro.svg logo-manjaro-legacy.svg
