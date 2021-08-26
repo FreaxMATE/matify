@@ -158,6 +158,23 @@ function default_settings()
     sudo cp mountains-mate-evening.jpg /usr/share/backgrounds/mountains-mate-evening.jpg
     sudo cp mountains-mate-night.jpg /usr/share/backgrounds/mountains-mate-night.jpg
     sudo cp mountains-mate.xml /usr/share/backgrounds/mountains-mate.xml
+
+    sudo cp mountains-mate-breakfast-logo.jpg /usr/share/backgrounds/mountains-mate-breakfast-logo.jpg
+    sudo cp mountains-mate-morning-logo.jpg /usr/share/backgrounds/mountains-mate-morning-logo.jpg
+    sudo cp mountains-mate-noon-logo.jpg /usr/share/backgrounds/mountains-mate-noon-logo.jpg
+    sudo cp mountains-mate-afternoon-logo.jpg /usr/share/backgrounds/mountains-mate-afternoon-logo.jpg
+    sudo cp mountains-mate-evening-logo.jpg /usr/share/backgrounds/mountains-mate-evening-logo.jpg
+    sudo cp mountains-mate-night-logo.jpg /usr/share/backgrounds/mountains-mate-night-logo.jpg
+    sudo cp mountains-mate.xml /usr/share/backgrounds/mountains-mate.xml
+
+    sudo cp mountains-mate-breakfast-sun.jpg /usr/share/backgrounds/mountains-mate-breakfast-sun.jpg
+    sudo cp mountains-mate-morning-sun.jpg /usr/share/backgrounds/mountains-mate-morning-sun.jpg
+    sudo cp mountains-mate-noon-sun.jpg /usr/share/backgrounds/mountains-mate-noon-sun.jpg
+    sudo cp mountains-mate-afternoon-sun.jpg /usr/share/backgrounds/mountains-mate-afternoon-sun.jpg
+    sudo cp mountains-mate-evening-sun.jpg /usr/share/backgrounds/mountains-mate-evening-sun.jpg
+    sudo cp mountains-mate-night-sun.jpg /usr/share/backgrounds/mountains-mate-night-sun.jpg
+    sudo cp mountains-mate.xml /usr/share/backgrounds/mountains-mate.xml
+
     gsettings set org.mate.background picture-filename /usr/share/backgrounds/mountains-mate.xml
 
     # start redshift automatically
