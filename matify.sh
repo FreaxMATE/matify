@@ -62,6 +62,7 @@ install_package_names="python-wheel\
                         libnotify\
                         python-setuptools\
                         python-distutils-extra\
+                        ttf-fira-code\
                         gtkhash-caja"
 
 build_packages="caja-admin\
@@ -69,7 +70,6 @@ build_packages="caja-admin\
                 libreoffice-style-yaru-fullcolor\
                 papirus-mate-icon-theme\
                 rhythmbox-plugin-alternative-toolbar\
-                ttf-fira-code\
                 volctl"
 
 function remove_packages()
@@ -87,12 +87,12 @@ function install_packages()
     echo -e "Installing Packages:"
     echo -e "  " $install_package_names
     echo -e
-    sudo pamac install --noconfirm $install_package_names
+    sudo pamac install --no-confirm $install_package_names
 
     echo -e "Building Packages from AUR:"
     echo -e "  " $build_packages
     echo -e
-    sudo pamac build --noconfirm $build_packages
+    sudo pamac build --no-confirm $build_packages
 }
 
 function clone_repos()
@@ -117,21 +117,6 @@ function build_from_source()
     cd build
     sudo ninja install
     echo -e "Installation of mate-layouts finished..."
-
-    # install papirus-icon-theme
-    echo -e "Installation of papirus-icon-theme started..."
-    cd /home/$USER/src/papirus-icon-theme
-    git checkout mate_green
-    sudo make install
-    echo -e "Installation of papirus-icon-theme finished..."
-
-    # install papirus-folders
-    echo -e "Installation of papirus-folders started..."
-    cd /home/$USER/src/papirus-folders
-    sudo make install
-    papirus-folders -t Papirus  -C mategreen
-    papirus-folders -t Papirus-Dark  -C mategreen
-    echo -e "Installation of papirus-folders finished..."
 }
 
 function default_settings()
@@ -237,75 +222,6 @@ function default_settings()
     echo -e "export HISTCONTROL=ignoreboth:erasedups" >> /home/$USER/.bashrc
 }
 
-function remove()
-{
-    cd /home/$USER/
-    mkdir src
-    cd /home/$USER/src/
-    rm -rf mate-layouts/
-    rm -rf manjaro-mate-settings/
-
-    clone_repos
-
-    # uninstall mate-layouts
-    cd /home/$USER/src/mate-layouts
-    meson build --prefix=/usr
-    cd build
-    sudo ninja install
-    sudo ninja uninstall
-
-    # manual #
-    # libreoffice set yaru mate icon theme
-    sed -i "s/yaru_mate/auto/" /home/$USER/.config/libreoffice/4/user/registrymodifications.xcu
-
-    # set menu icon to default Papirus icon
-    cd /home/$USER/.icons/
-    mv logo-manjaro-legacy.svg logo-manjaro-buffer.svg
-    mv logo-manjaro.svg logo-manjaro-legacy.svg
-    mv logo-manjaro-buffer.svg logo-manjaro.svg
-
-    # set new face icon
-    cd /home/$USER/
-    mv .face-legacy .face-buffer
-    mv .face .face-legacy
-    mv .face-buffer .face
-
-    # uninstall slideshow wallpaper
-    sudo rm /usr/share/backgrounds/mountains-mate-breakfast.jpg
-    sudo rm /usr/share/backgrounds/mountains-mate-morning.jpg
-    sudo rm /usr/share/backgrounds/mountains-mate-noon.jpg
-    sudo rm /usr/share/backgrounds/mountains-mate-afternoon.jpg
-    sudo rm /usr/share/backgrounds/mountains-mate-evening.jpg
-    sudo rm /usr/share/backgrounds/mountains-mate-night.jpg
-    sudo rm /usr/share/backgrounds/mountains-mate.xml
-
-    # do not start redshift automatically
-    rm /home/$USER/.config/autostart/redshift-gtk.desktop
- 
-    # uninstall template files
-    rm /home/$USER/Templates/bash.sh
-    rm /home/$USER/Templates/c.c
-    rm /home/$USER/Templates/c++.cpp
-    rm /home/$USER/Templates/header.h
-    rm /home/$USER/Templates/Java.java
-    rm /home/$USER/Templates/python.py
-    rm /home/$USER/Templates/rust.rs
-
-    # gsettings
-    gsettings reset org.mate.interface enable-animations
-    gsettings reset org.mate.interface gtk-theme
-    gsettings reset org.mate.interface icon-theme
-
-    gsettings reset org.mate.caja.desktop computer-icon-visible
-    gsettings reset org.mate.caja.desktop home-icon-visible
-    gsettings reset org.mate.caja.desktop trash-icon-visible
-    gsettings reset org.mate.caja.desktop volumes-visible
-    gsettings reset org.mate.background picture-options
-    gsettings reset org.mate.Marco.global-keybindings run-command-terminal
-
-    mate-layouts --layout default
-}
-
 function install_matify()
 {
     remove_packages
@@ -319,7 +235,6 @@ function usage() {
   echo -e
   echo -e "Usage"
   echo -e "  ./matify install        : install matify default settings"
-  echo -e "  ./matify remove         : revert to default settings"
   echo -e
   exit 1
 }
@@ -331,8 +246,6 @@ fi
 
 if [ "$1" == "install" ]; then
     install_matify
-elif [ "$1" == "remove" ]; then
-    remove
 else
     echo -e "Unknown option \"$1\""
     usage
