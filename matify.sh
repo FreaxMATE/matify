@@ -35,6 +35,8 @@ remove_packages_names="pidgin\
                         steam-manjaro\
                         snapd\
                         mate-tweak\
+                        uget\
+                        transmission-gtk
                         vlc"
 
 install_package_names="python-wheel\
