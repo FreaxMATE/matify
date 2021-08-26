@@ -87,12 +87,15 @@ function install_packages()
     echo -e "Installing Packages:"
     echo -e "  " $install_package_names
     echo -e
-    sudo pamac install --no-confirm $install_package_names
-
+    for package in $install_package_names; do
+        sudo pamac install --no-confirm $package
+    done
     echo -e "Building Packages from AUR:"
     echo -e "  " $build_packages
     echo -e
-    sudo pamac build --no-confirm $build_packages
+    for package in $build_packages; do
+        sudo pamac build --no-confirm $build_packages
+    done
 }
 
 function clone_repos()
