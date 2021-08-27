@@ -175,7 +175,7 @@ function default_settings()
     sudo cp -v mountains-night-sun.jpg /usr/share/backgrounds/mountains-night-sun.jpg
     sudo cp -v mountains-sun.xml /usr/share/backgrounds/mountains-sun.xml
 
-    gsettings set org.mate.background picture-filename /usr/share/backgrounds/mountains.xml
+    gsettings set org.mate.background picture-filename "/usr/share/backgrounds/mountains-sun.xml"
 
     # start redshift automatically
     cd /home/$USER/src/manjaro-mate-settings
