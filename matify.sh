@@ -238,6 +238,8 @@ function default_settings()
     gsettings set apps.volctl:/apps/volctl/ prefer-gtksi false
     gsettings set apps.volctl:/apps/volctl/ show-percentage true
 
+	gsettings set org.mate.calc show-history true
+
     gsettings set org.mate.control-center.keybinding:/org/mate/desktop/keybindings/custom0/ name 'Passwordsafe'
     gsettings set org.mate.control-center.keybinding:/org/mate/desktop/keybindings/custom0/ action 'gnome-passwordsafe'
     gsettings set org.mate.control-center.keybinding:/org/mate/desktop/keybindings/custom0/ binding '<Primary><Alt>s'
