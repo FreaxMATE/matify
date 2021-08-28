@@ -61,6 +61,7 @@ install_package_names="python-wheel\
                         python-setproctitle\
                         python-distro\
                         libnotify\
+                        seahorse\
                         python-setuptools\
                         python-distutils-extra\
                         ttf-fira-code\
@@ -70,6 +71,7 @@ build_packages="caja-admin\
                 mate-menu\
                 libreoffice-style-yaru-fullcolor\
                 papirus-mate-icon-theme\
+                pluma-plugins\
                 rhythmbox-plugin-alternative-toolbar\
                 volctl"
 
