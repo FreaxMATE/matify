@@ -35,6 +35,7 @@ remove_packages_names="pidgin\
                         steam-manjaro\
                         snapd\
                         mate-tweak\
+                        onlyoffice-desktopeditors\
                         uget\
                         transmission-gtk
                         vlc"
@@ -131,27 +132,27 @@ function build_from_source()
 
 function default_settings()
 {
-    # libreoffice set yaru mate icon theme
+    ## libreoffice set yaru mate icon theme
     cd /home/$USER/src/manjaro-mate-settings
     install -Dv registrymodifications.xcu /home/$USER/.config/libreoffice/4/user/registrymodifications.xcu
 
-    # set menu entries
+    ## set menu entries
     cd /home/$USER/src/manjaro-mate-settings
     install -Dv mate-applications.menu /home/$USER/.config/menus/mate-applications.menu
 
-    # set menu icon to default Papirus icon
+    ## set menu icon to default Papirus icon
     cd /home/$USER/.icons/
     mv logo-manjaro.svg logo-manjaro-legacy.svg
     cd /home/$USER/src/manjaro-mate-settings
     cp logo-manjaro.svg /home/$USER/.icons/logo-manjaro.svg
 
-    # set new face icon
+    ## set new face icon
     cd /home/$USER/
     mv .face .face-legacy
     cd /home/$USER/src/manjaro-mate-settings
     cp .face /home/$USER/.face
 
-    # install slideshow wallpaper
+    ## install slideshow wallpaper
     cd /home/$USER/src/manjaro-mate-settings
     sudo cp -v mountains-breakfast.jpg /usr/share/backgrounds/mountains-breakfast.jpg
     sudo cp -v mountains-morning.jpg /usr/share/backgrounds/mountains-morning.jpg
@@ -179,11 +180,11 @@ function default_settings()
 
     gsettings set org.mate.background picture-filename "/usr/share/backgrounds/mountains-sun.xml"
 
-    # start redshift automatically
+    ## start redshift automatically
     cd /home/$USER/src/manjaro-mate-settings
     cp redshift-gtk.desktop /home/$USER/.config/autostart/redshift-gtk.desktop
 
-    # install template files
+    ## install template files
     cd /home/$USER/src/manjaro-mate-settings
     cp bash.sh /home/$USER/Templates/bash.sh
     cp c.c /home/$USER/Templates/c.c
@@ -193,23 +194,26 @@ function default_settings()
     cp python.py /home/$USER/Templates/python.py
     cp rust.rs /home/$USER/Templates/rust.rs
 
-    # qt settings
+    ## qt settings
     cd /home/$USER/src/manjaro-mate-settings
     install -Dbv qt5ct.conf /home/$USER/.config/qt5ct/qt5ct.conf
     install -Dbv kvantum.kvconfig /home/$USER/.config/Kvantum/kvantum.kvconfig
 
-    # panel layout
+    ## panel layout
     mate-layouts --layout default
 
-    # replace mate-volume-control-status-icon with volctl
+    ## replace mate-volume-control-status-icon with volctl
     cd /home/$USER/src/manjaro-mate-settings
     rm /home/$USER/.config/autostart/mate-volume-control-status-icon.desktop
     sudo rm /etc/xdg/autostart/mate-volume-control-status-icon.desktop
     sudo rm /usr/etc/xdg/autostart/mate-volume-control-status-icon.desktop
     cp volctl.desktop /home/$USER/.config/autostart/volctl.desktop
 
+    ## lightdm theme
+    cd /home/$USER/src/manjaro-mate-settings
+    sudo install -Dbv slick-greeter.conf /etc/lightdm/slick-greeter.conf
 
-    # gsettings
+    ## MATE general
     gsettings set org.mate.interface enable-animations false
     gsettings set org.mate.Marco.general theme "Matcha-pueril"
     gsettings set org.mate.interface gtk-theme "Matcha-pueril"
@@ -226,31 +230,59 @@ function default_settings()
     gsettings set org.mate.caja.desktop trash-icon-visible false
     gsettings set org.mate.caja.desktop volumes-visible false
     gsettings set org.mate.background picture-options zoom
-    gsettings set org.mate.Marco.global-keybindings run-command-terminal "<Primary><Alt>t"
     gsettings set org.mate.screensaver picture-filename "/usr/share/backgrounds/manjaro-wallpapers-18.0/wMJ_neutral_textured_warm.jpg"
 
+    gsettings set org.mate.peripherals-touchpad tap-to-click true
+    gsettings set org.mate.sound event-sounds false
+    gsettings set org.mate.Marco.general compositing-fast-alt-tab false
+    gsettings set org.mate.calc show-history true
+    gsettings set org.mate.NotificationDaemon theme "top_right"
+    gsettings set org.mate.NotificationDaemon popup-location "coco"
+
+    sudo install -Dbv index.theme /usr/share/icons/default/index.theme
+
+    ## Apps
+    # Celluloid
     gsettings set io.github.celluloid-player.Celluloid csd-enable false
 
+    # Rhythmbox
     gsettings set org.gnome.rhythmbox.plugins active-plugins "['iradio', 'mpris', 'android', 'notification', 'audiocd', 'mtpdevice', 'daap', 'mmkeys', 'dbus-media-server', 'generic-player', 'audioscrobbler', 'rb', 'alternative-toolbar', 'artsearch', 'power-manager']"
     gsettings set org.gnome.rhythmbox.plugins.alternative_toolbar display-type 2
     gsettings set org.gnome.rhythmbox.plugins.alternative_toolbar enhanced-sidebar true
 
+    # Volctl
     gsettings set apps.volctl:/apps/volctl/ mixer-command 'mate-volume-control'
     gsettings set apps.volctl:/apps/volctl/ osd-enabled false
     gsettings set apps.volctl:/apps/volctl/ prefer-gtksi false
     gsettings set apps.volctl:/apps/volctl/ show-percentage true
 
-	gsettings set org.mate.calc show-history true
+    # Pluma
+    gsettings set org.mate.pluma active-plugins "['codecomment', 'docinfo', 'wordcompletion', 'terminal', 'bracketcompletion', 'modelines', 'time', 'spell', 'filebrowser']"
+    gsettings set org.mate.pluma auto-indent false
+    gsettings set org.mate.pluma background-pattern "none"
+    gsettings set org.mate.pluma bottom-panel-visible true
+    gsettings set org.mate.pluma side-pane-visible true
+    gsettings set org.mate.pluma bracket-matching true
+    gsettings set org.mate.pluma color-scheme "FreaxMATE"
+    gsettings set org.mate.pluma display-line-numbers true
+    gsettings set org.mate.pluma display-overview-map false
+    gsettings set org.mate.pluma insert-spaces true
+    gsettings set org.mate.pluma syntax-highlighting true
+    gsettings set org.mate.pluma tabs-size 4
 
+    # Grub
+    sudo sed -i 's/GRUB_TIMEOUT_STYLE=hidden/GRUB_TIMEOUT_STYLE=menu/g' /etc/default/grub
+
+    # Keyboard Shortcuts
+    gsettings set org.mate.Marco.global-keybindings run-command-terminal "<Primary><Alt>t"
     gsettings set org.mate.control-center.keybinding:/org/mate/desktop/keybindings/custom0/ name 'Passwordsafe'
     gsettings set org.mate.control-center.keybinding:/org/mate/desktop/keybindings/custom0/ action 'gnome-passwordsafe'
     gsettings set org.mate.control-center.keybinding:/org/mate/desktop/keybindings/custom0/ binding '<Primary><Alt>s'
 
-    cd /home/$USER/src/manjaro-mate-settings
-    sudo install -Dbv slick-greeter.conf /etc/lightdm/slick-greeter.conf
-    sudo install -Dbv index.theme /usr/share/icons/default/index.theme
+    # Terminal
+    gsettings set org.mate.terminal.profile:/org/mate/terminal/profiles/default/ scrollback-unlimited true
 
-    # bash
+    # Bash
     cd /home/$USER/
     echo -e "export HISTCONTROL=ignoreboth:erasedups" >> /home/$USER/.bashrc
 }
