@@ -44,6 +44,7 @@ install_package_names="python-wheel\
                         make\
                         matcha-gtk-theme\
                         meson\
+                        ctags\
                         gettext\
                         python-caja\
                         python-pip\
