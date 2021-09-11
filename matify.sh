@@ -200,6 +200,10 @@ function default_settings()
     install -Dbv qt5ct.conf /home/$USER/.config/qt5ct/qt5ct.conf
     install -Dbv kvantum.kvconfig /home/$USER/.config/Kvantum/kvantum.kvconfig
 
+    ## install gtksourceview theme
+    cd /home/$USER/src/manjaro-mate-settings
+    install -Dbv FreaxMATE.xml /home/$USER/.config/pluma/styles/FreaxMATE.xml
+
     ## panel layout
     mate-layouts --layout default
 
