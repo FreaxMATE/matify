@@ -71,6 +71,7 @@ install_package_names="python-wheel\
 
 build_packages="caja-admin\
                 mate-menu\
+                mate-layouts\
                 libreoffice-style-yaru-fullcolor\
                 papirus-mate-icon-theme\
                 pluma-plugins\
@@ -111,24 +112,9 @@ function clone_repos()
 {
     mkdir /home/$USER/src/
     cd /home/$USER/src/
-    echo -e "Cloning mate-layouts started..."
-    git clone https://github.com/FreaxMATE/mate-layouts.git
-    echo -e "Cloning mate-layouts finished..."
-
     echo -e "Cloning manjaro-mate-settings started..."
     git clone https://github.com/FreaxMATE/manjaro-mate-settings.git
     echo -e "Cloning manjaro-mate-settings finished..."
-}
-
-function build_from_source()
-{
-    # install mate-layouts
-    echo -e "Installation of mate-layouts started..."
-    cd /home/$USER/src/mate-layouts
-    meson build --prefix=/usr
-    cd build
-    sudo ninja install
-    echo -e "Installation of mate-layouts finished..."
 }
 
 function default_settings()
@@ -297,7 +283,6 @@ function install_matify()
     remove_packages
     install_packages
     clone_repos
-    build_from_source
     default_settings
 }
 
